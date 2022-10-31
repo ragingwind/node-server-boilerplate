@@ -1,0 +1,25 @@
+{
+  "name": "node-server-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Node server application",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint packages apps --ext .ts,.tsx",
+    "lint:fix": "pnpm lint --fix",
+    "clean": "pnpm --filter=@node-server run clean",
+    "build": "pnpm --filter=@node-server run build",
+    "build:clean": "pnpm clean && pnpm build",
+    "watch": "pnpm --filter=@node-server --parallel run watch"
+  },
+  "author": "Jimmy Moon <ragingwind@gmail.com",
+  "license": "MIT",
+  "keywords": ["node", "boilerplate", "server", "monorepo"],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-node": "workspace:*",
+    "prettier": "^2.0.0"
+  },
+  "packageManager": "pnpm@7.9.0"
+}

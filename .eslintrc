@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "extends": ["node"],
+  "rules": {
+    "import/no-unresolved": "off",
+    "no-restricted-imports": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "packages/**/dist/**/*"
+  ]
+}
