@@ -1,0 +1,20 @@
+{
+  "name": "@node-server/server",
+  "version": "1.0.0",
+  "description": "Simple API server file-system based routes",
+  "type": "module",
+  "scripts": {
+    "start": "node --no-warnings --experimental-modules --es-module-specifier-resolution=node ./dist/index.js",
+    "clean": "rm -rf dist",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "eslint": "^7.32.0",
+    "eslint-config-node": "workspace:*",
+    "@node-server/http-server": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.7.4"
+  }
+}

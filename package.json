@@ -4,17 +4,17 @@
   "description": "Boilerplate for Node server application",
   "main": "index.js",
   "scripts": {
-    "dev:cli": "nodemon --exec ts-node ./apps/cli/index.ts",
-    "dev:api": "nodemon --exec ts-node ./apps/api/index.ts",
-    "dev": "concurrently pnpm:dev:*",
-    "lint": "eslint packages apps --ext .ts,.tsx",
-    "lint:fix": "pnpm lint --fix",
-    "clean": "pnpm --filter=@node-server run clean",
-    "build": "pnpm --filter=@node-server run build",
-    "build:clean": "pnpm clean && pnpm build",
-    "watch": "pnpm --filter=@node-server --parallel run watch"
+    "dev:cli": "nodemon --exec ts-node ./apps/server/index.ts",
+    "start": "pnpm --filter=@node-server/server start",
+    "dev:all": "concurrently \"pnpm:watch\" \"pnpm:dev\" -g",
+    "dev": "pnpm --filter=@node-server/server --parallel run dev",
+    "watch": "pnpm --filter=@node-server/* --parallel run watch",
+    "test": "pnpm --filter=@node-server/* --parallel run test",
+    "build": "pnpm --filter=@node-server/* run build",
+    "clean": "pnpm --filter=@node-server/* run clean",
+    "lint": "eslint packages apps --ext .ts,.tsx"
   },
-  "author": "Jimmy Moon <ragingwind@gmail.com",
+  "author": "Jimmy Moon <ragingwind@gmail.com>",
   "license": "MIT",
   "keywords": [
     "node",
@@ -26,13 +26,7 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6",
-    "concurrently": "^7.5.0",
-    "eslint-config-node": "workspace:*",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.7.4"
+    "concurrently": "^7.5.0"
   },
   "packageManager": "pnpm@7.9.0"
 }
