@@ -1,4 +1,5 @@
 import { HttpServer } from '@node-server/http-server';
+import { Log } from '@node-server/logger';
 import path from 'node:path';
 
 // @TODO go to utils, or helper
@@ -8,11 +9,9 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const port = 8080;
 
-(async () => {
-  const server = await HttpServer.create({
-    routeRoot: path.join(__dirname, './api'),
-  });
+const server = await HttpServer.create({
+  routeRoot: path.join(__dirname, './api'),
+});
 
-  await server.listen(port);
-  console.log(`Listening on ${port}`);
-})();
+await server.listen(port);
+Log.info('server', `Server listening on port ${port}`);

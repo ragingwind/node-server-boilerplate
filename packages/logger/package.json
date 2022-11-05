@@ -1,0 +1,25 @@
+{
+  "name": "@node-server/logger",
+  "version": "1.0.0",
+  "description": "Simple logger with options",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "clean": "rm -rf dist",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "eslint": "^7.32.0",
+    "eslint-config-node": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.7.4",
+    "vitest": "^0.24.5"
+  }
+}
