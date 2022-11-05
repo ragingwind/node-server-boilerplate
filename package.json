@@ -4,9 +4,7 @@
   "description": "Boilerplate for Node server application",
   "main": "index.js",
   "scripts": {
-    "dev:cli": "nodemon --exec ts-node ./apps/server/index.ts",
     "start": "pnpm --filter=@node-server/server start",
-    "dev:all": "concurrently \"pnpm:watch\" \"pnpm:dev\" -g",
     "dev": "pnpm --filter=@node-server/server --parallel run dev",
     "watch": "pnpm --filter=@node-server/* --parallel run watch",
     "test": "pnpm --filter=@node-server/* --parallel run test",
