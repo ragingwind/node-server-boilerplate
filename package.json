@@ -1,8 +1,6 @@
 {
   "name": "node-server-boilerplate",
-  "version": "1.0.0",
   "description": "Boilerplate for Node server application",
-  "main": "index.js",
   "scripts": {
     "start": "pnpm --filter=@node-server/server start",
     "dev": "pnpm --filter=@node-server/server --parallel run dev",
