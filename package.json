@@ -3,7 +3,8 @@
   "description": "Boilerplate for Node server application",
   "scripts": {
     "start": "pnpm --filter=@node-server/server start",
-    "dev": "pnpm --filter=@node-server/server --parallel run dev",
+    "dev": "concurrently \"pnpm watch\" \"pnpm dev:server\"",
+    "dev:server": "pnpm --filter=@node-server/server --parallel run dev",
     "watch": "pnpm --filter=@node-server/* --parallel run watch",
     "test": "pnpm --filter=@node-server/* --parallel run test",
     "build": "pnpm --filter=@node-server/* run build",

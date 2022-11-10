@@ -3,16 +3,12 @@ import http from 'node:http';
 import { HttpRoute } from './route';
 import { Http } from './type';
 
-export type HttpServerOptions = {
-  routeRoot: string;
-};
-
 export class HttpServer {
   readonly #server: Http.Server;
-  readonly #options: HttpServerOptions; // @TODO improve or remove it
+  readonly #options: Http.ServerOptions; // @TODO improve or remove it
   readonly #routes: HttpRoute;
 
-  constructor(options: HttpServerOptions) {
+  constructor(options: Http.ServerOptions) {
     this.#options = options;
     this.#routes = new HttpRoute();
     this.#server = http.createServer();
@@ -40,10 +36,10 @@ export class HttpServer {
   }
 
   async onRequestHandler(req: Http.Request, res: Http.Response) {
-    await this.#routes.run(req, res);
+    await this.#routes.run(req, res, this.#options);
   }
 
-  static async create(options: HttpServerOptions) {
+  static async create(options: Http.ServerOptions) {
     const server = new HttpServer(options);
     await server.init(options.routeRoot);
 

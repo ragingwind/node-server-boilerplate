@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node --no-warnings --experimental-modules --es-module-specifier-resolution=node ./dist/index.js",
+    "dev": "nodemon --exec ts-node --esm --experimental-specifier-resolution=node ./index.ts",
     "clean": "rm -rf dist",
     "build": "tsc",
     "watch": "tsc --watch"
@@ -14,10 +15,25 @@
     "@types/node": "^16.11.6",
     "eslint": "^7.32.0",
     "eslint-config-node": "workspace:*",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@node-server/logger": "workspace:^1.0.0"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "./"
+    ],
+    "ext": "ts",
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
+    "exec": "ts-node ./src/index.ts",
+    "env": {
+      "NODE_ENV": "development"
+    }
   }
 }
